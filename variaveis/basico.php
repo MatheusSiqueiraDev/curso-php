@@ -24,3 +24,17 @@ echo '<br>' . $variavel;
 
 $variavel = "Agora eu sou uma String!";
 echo '<br>' . $variavel;
+
+// Nomes de variável
+
+$var = 'valida';
+$var2 = 'valida';
+$VAR3 = 'valida';
+$_var_4 = 'valida';
+$vâr5 = 'valida'; //evitar!
+// $6var = 'invalida';
+// $%var7 = 'invalida';
+// $var8% = 'invalida';
+
+echo '<br>';
+var_dump($_SERVER);
