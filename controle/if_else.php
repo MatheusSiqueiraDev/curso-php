@@ -19,3 +19,15 @@ if(false); {
     echo "Acredito que tenha possibilidade<br>";
     echo "Com certeza!<br>";
 }
+
+if(true) 
+    echo "Verdadeiro <br>";
+else
+    echo "Falso <br>";
+
+if(true) {
+    echo "Todos nós ";
+    echo "vamos ser impressos <br>";
+} else {
+    echo "Nós não iremos <br>";
+}
