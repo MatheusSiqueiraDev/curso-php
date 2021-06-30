@@ -31,3 +31,12 @@ if(true) {
 } else {
     echo "Nós não iremos <br>";
 }
+
+$numero = 15;
+if($numero < 10) {
+    echo "$numero < 10";
+} elseif ($numero < 20) {
+    echo "$numero < 20";
+} else {
+    echo "$numero é maior que 20";
+}
