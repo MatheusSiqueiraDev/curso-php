@@ -37,4 +37,6 @@ $vâr5 = 'valida'; //evitar!
 // $var8% = 'invalida';
 
 echo '<br>';
-var_dump($_SERVER);
+// var_dump($_SERVER);
+
+print_r($_SERVER);

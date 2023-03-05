@@ -39,7 +39,7 @@ var_dump(true xor false);
 var_dump(false xor true);
 var_dump(false xor false);
 
-echo "<br>";
+echo "<p>Tabela Verdade 'NEGAÇÃO'</p><hr>";
 
 var_dump(true != true);
 var_dump(true != false);
