@@ -1,0 +1,12 @@
+FROM ubuntu:24.04
+
+### Change user to perform privileged actions
+USER root
+
+# Atualize os pacotes e instale o PHP-FPM
+RUN apt-get update && \
+    apt-get install -y php-fpm &&\
+    apt-get install -y inetutils-ping
+
+# Inicie o serviço PHP-FPM automaticamente durante a inicialização do contêiner
+CMD ["php-fpm8.3", "-F"]

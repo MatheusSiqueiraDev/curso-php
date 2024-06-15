@@ -1,0 +1,38 @@
+version: '3'
+services:
+  php:
+    container_name: php
+    hostname: php
+    build: 
+      context: dockerfile
+      dockerfile: PHP
+    networks:
+      phpserver:
+        ipv4_address: 172.18.0.2
+    ports:
+      - '9000:9000'
+    volumes:
+      - ../htdocs:/var/www/html/
+      - ./cfg/php/8.3/fpm/pool.d/www.conf:/etc/php/8.3/fpm/pool.d/www.conf
+  apache:
+    container_name: apache
+    hostname: apache
+    build: 
+      context: dockerfile
+      dockerfile: APACHE
+    ports:
+      - '80:80'
+    networks:
+      phpserver:
+        ipv4_address: 172.18.0.3
+    volumes:
+      - ../htdocs:/var/www/html/
+      - ./cfg/apache/apache2.conf:/etc/apache2/apache2.conf
+      - ./cfg/apache/php-fpm.conf:/etc/apache2/conf-enabled/php-fpm.conf
+
+networks:
+  phpserver:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16

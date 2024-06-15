@@ -1,0 +1,20 @@
+FROM ubuntu:24.04
+
+### Change user to perform privileged actions
+USER root
+
+### Update package lists ###
+RUN apt update && \
+    apt install -y apache2 && \
+    apt install -y libapache2-mod-fcgid && \
+    apt install -y inetutils-ping 
+
+RUN a2dismod mpm_prefork && \ 
+    a2enmod mpm_event && \
+    a2enmod proxy && \ 
+    a2enmod proxy_fcgi && \
+    apachectl configtest && \
+    apachectl restart
+
+# Definir o comando padrão para manter o Apache no primeiro plano
+CMD ["apachectl", "-D", "FOREGROUND"]
